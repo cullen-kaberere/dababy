@@ -1,11 +1,9 @@
 body {
-  background-image: url(../images/images.jpeg);
-  line-height: 2cm;
-
+  background-image: url(../images/ghana.jpeg); 
 }
 
 h1 {
-  color: white;
+  color: rgb(41, 159, 196);
   text-align: center;
 }
 
@@ -13,6 +11,12 @@ p {
   font-family: verdana;
   font-size: 20px;
 }
-.col-md-6 right{
-    background-image:url(../images/download.jpeg) ;
+
+.bgimage
+{
+  background-image:url(../images/ghana.jpeg) ;
+  background-repeat:no-repeat;
+  height: auto;
+  width: auto;
+  position:relative;
 }

@@ -1,44 +1,39 @@
-var century, year, month, dayOfMonth, dayOfWeek, day;
-//Get input
-function getInput(){
-  century = parseInt(document.getElementById("century").value);
-  year = parseInt(document.getElementById("year").value);
-  month = parseInt(document.getElementById("month").value);
-  dayOfMonth = parseInt(document.getElementById("monthday").value);
 
 
-  if(century == ""){
-    alert("Input the correct gender");
-    return false;
-  }else if (year == ""){
-    alert("Input the correct year");
-    return false;
-  }else if (month == ""){
-    alert("Input the correct month");
-    return false;
-  }else if(dayOfMonth == ""){
-    alert("input the correct date");
-    return false;
-  }
-}
-//Calculate func
-function calculateDay(){
-    getInput();
-    dayOfWeek = ((((century/4) -2*century-1) + ((5*year/4) ) + ((26*(month+1)/10)) + dayOfMonth) % 7) -1;
-    console.log(dayOfWeek); //Test the calculateDay function
-    return (Math.floor(dayOfWeek));
-    if (dayOfWeek < 0) {
-      dayOfWeek = dayOfWeek * -1;
-    }
-    else if (dayOfWeek > 0) {
-      return dayOfWeek;
-    }
-}
 
 //main caller func
- function checkDayOfWeek(){
+ function calculateDay()
+ {
+  var century = parseInt(document.getElementById("century").value);
+  var year = parseInt(document.getElementById("year").value);
+  var month = parseInt(document.getElementById("month").value);
+  var dayOfMonth = parseInt(document.getElementById("monthday").value);
+
+ var dayOfWeek = ((((century/4) -2*century-1) + ((5*year/4) ) + ((26*(month+1)/10)) + dayOfMonth) % 7) -1;
+  
+
+
+   var dayOfWeek=Math.floor(dayOfWeek);
+ // document.write(dayOfWeek);
+    if (dayOfWeek < 0)
+     {
+      dayOfWeek= dayOfWeek * -1;
+    //  document.write("its less than 0:"+dayOfWeek);
+    }
+    else if (dayOfWeek> 0)
+     {
+     //  document.write("its greater than 0"+dayOfWeek );
+      return dayOfWeek;
+    }
+   
+    
+}
+
+function checkDayOfWeek()
+ {
      day = calculateDay();
-      checkGender();
+    // document.write(day);
+     checkGender();
       console.log("The function runs");//Test chackDayOfWeek function
 }
 
@@ -47,17 +42,26 @@ let daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "frida
 let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
 
 
-//get selected radio button
-function checkGender(){
+
+function checkGender()
+{
   var gen = document.getElementsByName("rads");
-  if(gen[0].checked == true){
+  if(gen[0].checked == true)
+  {
       var gender = "male";
-  }else if(gen[1].checked == true){
+     // document.write("my gender is:"+gender);
+  }
+  else if(gen[1].checked == true)
+  {
       var gender = "female";
-  }else {
+      //document.write("my gender is:"+gender);
+  }
+  else
+   {
     console.log("pass");//Test the radio buttons
   }
-    switch(gender){
+   switch(gender)
+    {
         case gender = "male":
               switch(day){
                 case (0 || -0):
@@ -114,4 +118,5 @@ function checkGender(){
         default:
         console.log("pass");//Test gender switch
     }
+    
 }
